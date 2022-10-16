@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar.js';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div className="App">
+    <>
+    <Navbar/>  
+    <ItemListContainer greeting="Saludos! Esta es la Primera Entrega del Proyecto Final"/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,7 +22,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </>
   );
 }
 

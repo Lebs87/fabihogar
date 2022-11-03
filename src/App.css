@@ -1,11 +1,31 @@
-.item-list{
-  display: flex;
-  text-align: center;
-  justify-content: space-around;
+/*RESET*/
+*{
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
 }
+/*GENERAL*/
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*COMMONS*/
 .item-list-container{
   color: black;
 }
 .navbar{
   justify-content:space-evenly;
+}
+.card_item{
+  width: 18em;
+  border-color: blueviolet;
+}
+.card_detail{
+  border-color: blueviolet;
+}
+.btn{
+  background-color: blueviolet;
+  color: white;
 }

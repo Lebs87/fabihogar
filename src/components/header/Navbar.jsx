@@ -9,9 +9,7 @@ function Navbar() {
                 <Link to="/" className="navbar-brand">
                     <img src={images[1].img} alt="Logo de FabiHogar" width="120" height="40" />
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                
                 <div className='d-flex justify-content-end'>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <form className="d-flex" role="search">
@@ -32,7 +30,6 @@ function Navbar() {
                                 <ul className="dropdown-menu">
                                     <li><NavLink to="/category/cocina" className="dropdown-item">Cocina</NavLink></li>
                                     <li><NavLink to="/category/toilet" className="dropdown-item">Baño</NavLink></li>
-                                    <li><NavLink to="/category/limpieza" className="dropdown-item">Limpieza</NavLink></li>
                                     <li><NavLink to="/category/decoracion" className="dropdown-item">Decoración</NavLink></li>
                                 </ul>
                             </li>
@@ -43,6 +40,9 @@ function Navbar() {
                         </ul>
                     </div>
                 </div>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
     );

@@ -1,13 +1,14 @@
-import images from '../assets/images';
-import CartWidget from './CartWidget.js';
+import { Link, NavLink } from 'react-router-dom';
+import images from '../../assets/images';
+import CartWidget from '../CartWidget.js';
 
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid ">
-                <a className="navbar-brand" href="#">
+                <Link to="/" className="navbar-brand">
                     <img src={images[1].img} alt="Logo de FabiHogar" width="120" height="40" />
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,26 +20,26 @@ function Navbar() {
                         </form>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 start">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                <NavLink to="/" className="nav-link active" aria-current="page">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Nosotros</a>
+                                <NavLink to="/nosotros" className="nav-link">Nosotros</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categoría
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Cocina</a></li>
-                                    <li><a className="dropdown-item" href="#">Baño</a></li>
-                                    <li><a className="dropdown-item" href="#">Limpieza</a></li>
-                                    <li><a className="dropdown-item" href="#">Decoración</a></li>
+                                    <li><NavLink to="/category/cocina" className="dropdown-item">Cocina</NavLink></li>
+                                    <li><NavLink to="/category/toilet" className="dropdown-item">Baño</NavLink></li>
+                                    <li><NavLink to="/category/limpieza" className="dropdown-item">Limpieza</NavLink></li>
+                                    <li><NavLink to="/category/decoracion" className="dropdown-item">Decoración</NavLink></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Contacto</a>
+                                <NavLink to="contacto" className="nav-link">Contacto</NavLink>
                             </li>
-                            <CartWidget/>
+                            <Link to="/cart" className='nav-link'><CartWidget /></Link>             
                         </ul>
                     </div>
                 </div>

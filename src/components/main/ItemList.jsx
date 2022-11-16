@@ -16,15 +16,3 @@ const ItemList = ({items}) => {
 }
 
 export default ItemList
-
-
-
-   
-/*             {items.map((producto) => {
-                return <Item producto={producto} key={producto.id} />;
-            })}
-        </div>
-    );
-};
-
-export default ItemList; */

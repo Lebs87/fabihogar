@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 /*GENERAL*/
+.div_loading,
 body{
     min-height: 100vh;
     display: flex;
@@ -20,10 +21,10 @@ body{
 }
 .card_item{
   width: 18em;
-  border-color: blueviolet;
+  border-color: #8a2be2;
 }
 .card_detail{
-  border-color: blueviolet;
+  border-color: blueviolet; 
 }
 .btn{
   background-color: blueviolet;

@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import ItemCount from './ItemCount'
+import Confirmar from './Confirmar';
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
-  const add = () => {
-    console.log("En ruta al carrito")
-  }
+  const [show, setShow] = useState(true);
+
+  const { addToCart, cantidadDeProducto } = useContext(CartContext)
+
+  const add = (arg) => {
+    setShow(false);
+    addToCart(item, arg);
+  };
+  const volver =()=>{
+    setShow(true);
+  };
+  
+  const cantidad = cantidadDeProducto(item.id)
+
   return (
     <div className='container my-5'>
       <div key={item.id} className='card card_detail'>
@@ -19,7 +32,8 @@ const ItemDetail = ({ item }) => {
                 <p>&emsp;&emsp;{item.description}</p>
                 <h3 className='fs-1 text-end'>${item.price}.-</h3>
               </article>
-              <ItemCount stock={item.stock} initial={0} onAdd={add} />
+              {show?(<ItemCount stock={item.stock} initial={cantidad||0} onAdd={add} setShow/>):
+              (<Confirmar regresar={volver}/>)}
             </div>
           </div>
         </div>

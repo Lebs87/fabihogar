@@ -1,21 +1,17 @@
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import images from '../../assets/images';
-import CartWidget from '../CartWidget.js';
+import images from '../../../assets/images.js';
+import CartWidget from './CartWidget.js';
 
-function Navbar() {
+const LayoutNav = ({categories}) => {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid ">
                 <Link to="/" className="navbar-brand">
                     <img src={images[1].img} alt="Logo de FabiHogar" width="120" height="40" />
                 </Link>
-                
                 <div className='d-flex justify-content-end'>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="¿Qué estas buscando?" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Buscar</button>
-                        </form>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 start">
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link active" aria-current="page">Home</NavLink>
@@ -24,19 +20,22 @@ function Navbar() {
                                 <NavLink to="/nosotros" className="nav-link">Nosotros</NavLink>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categoría
-                                </a>
+                                </div>
                                 <ul className="dropdown-menu">
-                                    <li><NavLink to="/category/cocina" className="dropdown-item">Cocina</NavLink></li>
-                                    <li><NavLink to="/category/toilet" className="dropdown-item">Baño</NavLink></li>
-                                    <li><NavLink to="/category/decoracion" className="dropdown-item">Decoración</NavLink></li>
+                                    {categories.map((cat) => (
+                                        <NavLink key={cat.id} className="dropdown-item" to={`/category/${cat.elementCategory}`}>{cat.navCategory}</NavLink>
+                                    ))}
                                 </ul>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="contacto" className="nav-link">Contacto</NavLink>
                             </li>
-                            <Link to="/cart" className='nav-link'><CartWidget /></Link>             
+                            <li className='d-flex'>
+                                <Link to="/search" className='nav-link mx-1'><span className='material-symbols-outlined'>travel_explore</span></Link>
+                                <Link to="/cart" className='nav-link mx-1'><CartWidget /></Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -48,4 +47,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default LayoutNav

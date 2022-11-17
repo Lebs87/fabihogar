@@ -4,51 +4,84 @@ export const CartContext = createContext();
 
 const CartProvider = (props) => {
     const [cart, setCart] = useState([])
-    const addToCart = ( detail, quantity ) => {
-       // console.log({...detail, quantity})
-       if (isInCart(detail.id)){
-        sumarCantidad(detail, quantity);
-       }else{
-        setCart([...cart ,{...detail, quantity}])
-       }
-        
-    }
-const isInCart = (id) =>{
-    return cart.some ((prod) => prod.id === id)
-}
-const clear = () => {
-    setCart([]);
-};
 
-const sumarCantidad = (itemPorAgregar, quantity) => {
-    const cartActualizado = cart.map((prodDelCarrito) => {
-        if (prodDelCarrito.id === itemPorAgregar.id) {
-            const productoActualizado = {
-                ...prodDelCarrito,
-                quantity,
-            };
-            return productoActualizado;
+    //AÑADIR AL CARRITO
+    const addToCart = (detail, quantity) => {
+        if (isInCart(detail.id)) {
+            sumarCantidad(detail, quantity);
         } else {
-            return prodDelCarrito;
+            setCart([...cart, { ...detail, quantity }])
         }
-    });
-    setCart(cartActualizado);
-};
+    }
+    //CHEQUEO COMPRA REPETIDA
+    const isInCart = (id) => {
+        return cart.some((prod) => prod.id === id)
+    }
 
-const cantidadDeProducto = (id) => {
-    const product = cart.find((prod) => prod.id === id);
-    return product?.quantity;
-};
+    //VACIAR CARRITO
+    const clear = () => {
+        setCart([]);
+    };
 
-const deleteOne =(id)=>{
-    const prodFiltrados = cart.filter((prod)=> prod.id !== id)
-    setCart(prodFiltrados);
-};
-  return (
-    <CartContext.Provider value={{ cart, addToCart, clear, deleteOne, sumarCantidad, cantidadDeProducto }}>
-        {props.children}
-    </CartContext.Provider>
-  );
+    //SUMAR CANTIDAD DE UN MISMO PRODUCTO
+    const sumarCantidad = (itemPorAgregar, quantity) => {
+        const cartActualizado = cart.map((prodDelCarrito) => {
+            if (prodDelCarrito.id === itemPorAgregar.id) {
+                const productoActualizado = {
+                    ...prodDelCarrito,
+                    quantity,
+                };
+                return productoActualizado;
+            } else {
+                return prodDelCarrito;
+            }
+        });
+        setCart(cartActualizado);
+    };
+
+    //CANTIDAD DEL PRODUCTO, EL ? ES PARA QUE SI NO LO ENCUENTRA NO ME REGRESE ERROR
+    const cantidadDeProducto = (id) => {
+        const product = cart.find((prod) => prod.id === id);
+        return product?.quantity;
+    };
+
+    //ELIMINAR UN SOLO PRODUCTO
+    const deleteOne = (id) => {
+        const prodFiltrados = cart.filter((prod) => prod.id !== id)
+        setCart(prodFiltrados);
+    };
+
+    //SUMAR UNIDADES PARA EL INDICARDOR DEL CARRIRO
+    const totalUnits = () => {
+        let count = 0;
+        const copy = [...cart];
+        copy.forEach((prod) => {
+            count = count += prod.quantity;
+        });
+        return count;
+    };
+
+    // const totalUnidadesReduce = () => {
+    //     return cart.reduce((prev, curr)=> prev + curr.cantidad, 0)
+    // }
+
+    const totalPrice = () => {
+        
+    };
+
+
+
+
+
+
+
+
+
+    return (
+        <CartContext.Provider value={{ cart, addToCart, clear, deleteOne, sumarCantidad, cantidadDeProducto, totalUnits, totalPrice }}>
+            {props.children}
+        </CartContext.Provider>
+    );
 };
 
 export default CartProvider;

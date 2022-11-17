@@ -1,7 +1,7 @@
- import React, { useState } from 'react'
+import React, { useState } from 'react'
 
 const Contacto = ({greeting}) => {
-  const [ data, setData ] = useState({ tipo: '', nombre: '', apellido: '', correo: 'text@example.com', telefono: '+54 9 11 5555-5555', comentario: 'Me gustaria...', });
+  const [ data, setData ] = useState({ tipo: '', nombre: '', apellido: '', correo: 'text@example.com', correoChek: 'text@example.com',telefono: '+54 9 11 5555-5555', telefonoAlt: '+54 9 11 444-4444', comentario: 'Me gustaria...', });
 
   const enviarDatos = (e) => {
     e.preventDefault()
@@ -11,7 +11,9 @@ const Contacto = ({greeting}) => {
           nombre: data.nombre,
           apellido: data.apellido,
           correo: data.correo,
+          correoChek: data.correoChek,
           telefono: data.telefono,
+          telefonoAlt: data.telefonoAlt,
           comentario: data.comentario,
         }
     }
@@ -52,14 +54,28 @@ const Contacto = ({greeting}) => {
         <section className='row'>
           <article className='col-xs-12 col-sm-6 py-3'>
             <div className='form-floating'>
-              <input type="email" className='form-control' id="floatingInputValue" placeholder="name@example.com" name="correo" onChange={handleChange} value={data.correo} />
-              <label className='mx-1' htmlFor="floatingInputValue">Correo electrónico</label>
+              <input type="email" className='form-control' id="floatingInputValueOne" placeholder="name@example.com" name="correo" onChange={handleChange} value={data.correo} />
+              <label className='mx-1' htmlFor="floatingInputValueOne">E-mail</label>
             </div>
           </article>
           <article className='col-xs-12 col-sm-6 py-3'>
             <div className='form-floating'>
-              <input type="text" className='form-control' id="floatingPhone" placeholder="+54 9 11 5555-5555" aria-label="Phone" name="telefono" onChange={handleChange} value={data.telefono} />
-              <label className='mx-1' htmlFor="floatingPhone">Número Telefónico</label>
+              <input type="email" className='form-control' id="floatingInputValueTwo" placeholder="name@example.com" name="correoChek" onChange={handleChange} value={data.correoChek} />
+              <label className='mx-1' htmlFor="floatingInputValueTwo">Repita E-mail</label>
+            </div>
+          </article>
+        </section>
+        <section className='row'>
+          <article className='col-xs-12 col-sm-6 py-3'>
+            <div className='form-floating'>
+              <input type="text" className='form-control' id="floatingPhoneOne" placeholder="+54 9 11 5555-5555" aria-label="Phone" name="telefono" onChange={handleChange} value={data.telefono} />
+              <label className='mx-1' htmlFor="floatingPhoneOne">Número Telefónico</label>
+            </div>
+          </article>
+          <article className='col-xs-12 col-sm-6 py-3'>
+            <div className='form-floating'>
+              <input type="text" className='form-control' id="floatingPhoneTwo" placeholder="+54 9 11 5555-5555" aria-label="Phone" name="telefonoAlt" onChange={handleChange} value={data.telefonoAlt} />
+              <label className='mx-1' htmlFor="floatingPhoneTwo">Teléfono Alternativo</label>
             </div>
           </article>
         </section>
@@ -70,12 +86,12 @@ const Contacto = ({greeting}) => {
           </div>
         </section>
         <section className='text-center'>
-          <button className='btn'>Enviar</button>
+          <button className='btn' disabled={(data.correo !== data.correoChek)}>Enviar</button>
         </section>
       </form>
     </div>
   </>
-    
   )
 }
+
 export default Contacto

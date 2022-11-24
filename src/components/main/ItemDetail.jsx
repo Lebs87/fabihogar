@@ -17,7 +17,15 @@ const ItemDetail = ({ item }) => {
   };
   
   const cantidad = cantidadDeProducto(item.id)
-
+  const priceUnitary = item.price
+  const sum =(cantidad)=>{
+    let suma = 0
+    suma = priceUnitary * cantidad
+    return (
+      suma?suma:0
+    )
+  }
+  
   return (
     <div className='container my-5'>
       <div key={item.id} className='card card_detail'>
@@ -30,9 +38,8 @@ const ItemDetail = ({ item }) => {
               <h5 className='fs-2'>{item.title}</h5>
               <article>
                 <p>&emsp;&emsp;{item.description}</p>
-                <h3 className='fs-1 text-end'>${item.price}.-</h3>
               </article>
-              {show?(<ItemCount stock={item.stock} initial={cantidad||0} onAdd={add} setShow/>):
+              {show?(<ItemCount resuelto={sum} stock={item.stock} initial={cantidad||0} onAdd={add} setShow price={priceUnitary}/>):
               (<Confirmar regresar={volver}/>)}
             </div>
           </div>

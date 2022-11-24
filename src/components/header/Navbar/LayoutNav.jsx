@@ -8,7 +8,7 @@ const LayoutNav = ({categories}) => {
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid ">
                 <Link to="/" className="navbar-brand">
-                    <img src={images[1].img} alt="Logo de FabiHogar" width="120" height="40" />
+                    <img src={images[1].img} alt={images[1].title} width="120" height="40" />
                 </Link>
                 <div className='d-flex justify-content-end'>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { CartContext } from '../../context/CartContext';
 
 const CheckOut = ({greeting}) => {
   const [ data, setData ] = useState({ fullName: '', telefono: '+54 9 11 5555-5555', correo: 'text@example.com', correoChek: 'text@example.com', direccion: 'Calle...', });
-
+  const { cart, totalAmount } = useContext(CartContext);
   const enviarDatos = (e) => {
     e.preventDefault()
     const obj = {
@@ -25,7 +26,15 @@ const CheckOut = ({greeting}) => {
   return (
     <>
     <p className="p-3 mb-2 bg-secondary text-white">{greeting}</p>
-    <div className='container'>
+    <h5 className='p-3  text-center'>Detalle de compra:</h5>
+    <div className='container'>{
+      cart.map((prod) => (
+          <section className="p-2">
+              <p>{prod.name}</p><p>{totalAmount}</p>
+          </section>
+      ))
+      }
+      <h5 className='p-3  text-center'>Datos de envío:</h5>
       <form action="" onSubmit={enviarDatos}>
         <section className='row'>
           <article className='col-xs-12 col-sm-6 py-3'>
@@ -55,7 +64,7 @@ const CheckOut = ({greeting}) => {
             <label htmlFor="floatingTextarea2">Dirección: Calle / N° calle / Casa - Apto. / Barrio / Provincia</label>
           </div>
         </section>
-        <section className='text-center'>
+        <section className='text-center pb-4'>
           <button className='btn' disabled={(data.correo !== data.correoChek)}>Comprar</button>
         </section>
       </form>

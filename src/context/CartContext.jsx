@@ -51,7 +51,7 @@ const CartProvider = (props) => {
         setCart(prodFiltrados);
     };
 
-    //SUMAR UNIDADES PARA EL INDICARDOR DEL CARRIRO
+    //SUMAR UNIDADES PARA EL INDICARDOR DEL CARRITO
     const totalUnits = () => {
         let count = 0;
         const copy = [...cart];
@@ -60,25 +60,19 @@ const CartProvider = (props) => {
         });
         return count;
     };
-
-    // const totalUnidadesReduce = () => {
-    //     return cart.reduce((prev, curr)=> prev + curr.cantidad, 0)
-    // }
-
-    const totalPrice = () => {
-        
+    
+    //SUMA TOTAL DEL CARRITO
+    const totalAmount = () => {
+        let count = 0;
+        const copy = [...cart];
+        copy.forEach((prod) => {
+            count = count += prod.price * prod.quantity;
+        });
+        return count;
     };
 
-
-
-
-
-
-
-
-
     return (
-        <CartContext.Provider value={{ cart, addToCart, clear, deleteOne, sumarCantidad, cantidadDeProducto, totalUnits, totalPrice }}>
+        <CartContext.Provider value={{ cart, addToCart, clear, deleteOne, sumarCantidad, cantidadDeProducto, totalUnits, totalAmount }}>
             {props.children}
         </CartContext.Provider>
     );

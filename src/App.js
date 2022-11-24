@@ -9,6 +9,7 @@ import Contacto from './components/main/Contacto';
 import CartProvider from './context/CartContext';
 import CheckOut from './components/cart/CheckOut';
 import Search from './components/main/Search';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Navbar />  
         <Routes>
           <Route path='/' element={<ItemListContainer greeting="Bienvenidos a FabiHogar!!!" />}/>
-          <Route path='/nosotros' element={<Nosotros />}/>
+          <Route path='/nosotros' element={<Nosotros greeting="Te esperamos en nuestra sucursal!!!"/>}/>
           <Route path='/category/:categoryName' element={<ItemListContainer greeting="Todas las categorías para el hogar!!!" />}/>
           <Route path='/contacto' element={<Contacto  greeting="Será un gusto responder tu consulta!!!"/>}/>
           <Route path='/detail/:idProd' element={<ItemDetailContainer />}/>
@@ -26,6 +27,7 @@ function App() {
           <Route path='/checkOut' element={<CheckOut greeting="Recuerda completar todos los campos, evita problemas con tu envío!" />}/>
           <Route path='/search' element={<Search greeting="Ingresa el número de pedido o de solicitud de contacto que deseas consultar" />}/>
         </Routes>
+        <Footer />
       </CartProvider>
     </BrowserRouter>
     </>

@@ -1,7 +1,6 @@
 export const products = [
     {
-        id: 1,
-        descuento: 15,
+        descuento: 0,
         title: 'Dispensador Plástico',
         price: 1500,
         stock: 10,
@@ -10,8 +9,7 @@ export const products = [
         img: 'https://res.cloudinary.com/dhw4kmb5x/image/upload/v1667327891/fabihogar/jabonLiquido1_gqgsuh.png',
     },
     {
-        id: 2,
-        descuento: 35,
+        descuento: 0,
         title: 'Velas',
         price: 900,
         stock: 5,
@@ -20,8 +18,7 @@ export const products = [
         img: 'https://res.cloudinary.com/dhw4kmb5x/image/upload/v1667327896/fabihogar/velasAromaticas1_wjmvru.png',
     },
     {
-        id: 3,
-        descuento: 50,
+        descuento: 0,
         title: 'Dispensador Acero',
         price: 2500,
         stock: 7,
@@ -30,8 +27,7 @@ export const products = [
         img: 'https://res.cloudinary.com/dhw4kmb5x/image/upload/v1667327886/fabihogar/dispensadorAcero1_uuq4ek.png',
     },
     {
-        id: 4,
-        descuento: 50,
+        descuento: 0,
         title: 'Colador de Pasta',
         price: 2000,
         stock: 7,
@@ -40,8 +36,7 @@ export const products = [
         img: 'https://res.cloudinary.com/dhw4kmb5x/image/upload/v1667490839/fabihogar/colador_pasta1_s0als0.png',
     },
     {
-        id: 5,
-        descuento: 50,
+        descuento: 0,
         title: 'Mortero Marmol',
         price: 1400,
         stock: 7,
@@ -50,8 +45,7 @@ export const products = [
         img: 'https://res.cloudinary.com/dhw4kmb5x/image/upload/v1667490839/fabihogar/mortero_marmol1_okywfc.png',
     },
     {
-        id: 6,
-        descuento: 50,
+        descuento: 0,
         title: 'Jarro Hervidor',
         price: 3500,
         stock: 7,

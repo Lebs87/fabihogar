@@ -54,6 +54,9 @@ body {
 .nosotrosBg{
   background-color: rgb(224, 212, 235);
 }
+.checkOut_table{
+  text-align: center;
+}
 /*FOOTER PUBLICITY*/
 .max_height_publicity {
   max-height: 400px;

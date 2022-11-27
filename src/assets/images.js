@@ -6,7 +6,7 @@ import localfabihogar2 from './images/4localFabihogar.jpg';
 import localfabihogar3 from './images/5localFabihogar.jpg';
 import localfabihogar4 from './images/6localFabihogar.jpg';
 
-export default [
+const imagenes = [
     {"img": logoGrande,
     "title": "Logo de FabiHogar"
     },
@@ -29,3 +29,5 @@ export default [
     "title": "Vista de vitrina interna de fabihogar"
     }
 ];
+
+export default imagenes

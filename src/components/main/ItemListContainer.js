@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import SyncLoader from "react-spinners/SyncLoader";
+import Loading from './Loading';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { dataBase } from '../../services/firebaseConfig';
 
@@ -33,15 +33,7 @@ const ItemListContainer = ({ greeting }) => {
     return () => setLoading(true);
   }, [categoryName]);
 
-  if (loading) {
-    return (
-      <div className='position-relative div_loading'>
-        <div className='position-absolute top-50 start-50 translate-middle'>
-          <SyncLoader color="blueviolet" />
-        </div>
-      </div>
-    )
-  }
+  if (loading) { return <Loading />}
   
   return (
     <div className='item-list-container'>

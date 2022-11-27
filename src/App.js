@@ -11,6 +11,15 @@ import CheckOut from './components/cart/CheckOut';
 import Search from './components/main/Search';
 import Footer from './components/footer/Footer';
 
+//Útil para una carga masiva de productos
+/* import { addDoc, collection } from 'firebase/firestore';
+import { dataBase } from './services/firebaseConfig';
+import { products } from './mock/products';
+
+const prodCollection = collection(dataBase, 'productos');
+
+products.forEach((prod) => addDoc(prodCollection, prod)); */
+
 function App() {
   return (
     <>

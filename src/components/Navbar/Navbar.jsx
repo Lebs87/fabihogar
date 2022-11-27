@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { dataBase } from '../../../services/firebaseConfig';
-import LayoutNav from '../Navbar/LayoutNav';
+import { dataBase } from '../../services/firebaseConfig';
+import LayoutNav from './LayoutNav';
 
 const Navbar = () => {
     const [categories, setCategories] = useState([]);

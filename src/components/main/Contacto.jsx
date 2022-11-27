@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { dataBase } from '../../services/firebaseConfig';
 
 const Contacto = ({greeting}) => {
   const [ data, setData ] = useState({ tipo: '', nombre: '', apellido: '', correo: 'text@example.com', correoChek: 'text@example.com',telefono: '+54 9 11 5555-5555', telefonoAlt: '+54 9 11 444-4444', comentario: 'Me gustaria...', });
+  const [loading, setLoading] = useState(false);
 
   const enviarDatos = (e) => {
     e.preventDefault()
+    setLoading(true)
     const obj = {
-        comprador:{
+        datosDeContacto: {
           tipo: data.tipo,
           nombre: data.nombre,
           apellido: data.apellido,
@@ -15,10 +19,23 @@ const Contacto = ({greeting}) => {
           telefono: data.telefono,
           telefonoAlt: data.telefonoAlt,
           comentario: data.comentario,
-        }
-    }
-    console.table(obj) //Objeto a ser enviado al backend
-  }
+        },
+        fecha: serverTimestamp(),
+    };
+    const objCollection = collection(dataBase, 'contactos')
+
+    addDoc(objCollection, obj)
+      .then(() => {
+        setData({ tipo: '0', nombre: '', apellido: '', correo: '', correoChek: '',telefono: '', telefonoAlt: '', comentario: '' });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false)
+      });
+
+  };
 
   const handleChange =(e)=> {
     const { name, value } = e.target;
@@ -85,8 +102,8 @@ const Contacto = ({greeting}) => {
             <label htmlFor="floatingTextarea2">Comentarios</label>
           </div>
         </section>
-        <section className='text-center'>
-          <button className='btn' disabled={(data.correo !== data.correoChek)}>Enviar</button>
+        <section className='text-center p-2'>
+          <button className='btn' disabled={(data.correo !== data.correoChek)}>{loading ? "Enviando..." : "Suscribirme"}</button>
         </section>
       </form>
     </div>

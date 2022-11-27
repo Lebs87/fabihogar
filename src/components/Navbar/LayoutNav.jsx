@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import images from '../../../assets/images.js';
+import images from '../../assets/images.js';
 import CartWidget from './CartWidget.js';
 
 const LayoutNav = ({categories}) => {

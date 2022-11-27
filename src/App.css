@@ -1,10 +1,8 @@
-/*RESET*/
 * {
   padding: 0rem;
   margin: 0rem;
   box-sizing: border-box;
 }
-/*GENERAL*/
 .div_empty,
 .div_loading,
 body {
@@ -13,7 +11,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-/*COMMONS*/
 .item-list-container {
   color: black;
 }
@@ -57,7 +54,6 @@ body {
 .checkOut_table{
   text-align: center;
 }
-/*FOOTER PUBLICITY*/
 .max_height_publicity {
   max-height: 400px;
 }

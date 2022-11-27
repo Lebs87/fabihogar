@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/header/Navbar/Navbar.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
 import ItemListContainer from './components/main/ItemListContainer';
 import ItemDetailContainer from './components/main/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -10,15 +10,6 @@ import CartProvider from './context/CartContext';
 import CheckOut from './components/cart/CheckOut';
 import Search from './components/main/Search';
 import Footer from './components/footer/Footer';
-
-//Útil para una carga masiva de productos
-/* import { addDoc, collection } from 'firebase/firestore';
-import { dataBase } from './services/firebaseConfig';
-import { products } from './mock/products';
-
-const prodCollection = collection(dataBase, 'productos');
-
-products.forEach((prod) => addDoc(prodCollection, prod)); */
 
 function App() {
   return (

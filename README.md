@@ -1,16 +1,19 @@
+![](public/fabihogar.gif)
+
 # Fabihogar - Proyecto E-commerce 
 
-#### Profesor de React: Eric Wajnrajch
+#### Profesor de React: **Eric Wajnrajch**
+#### Alumno: **Luis Belisario**
 
-#### Proyecto final de React en CoderHouse, consiste en la construcción de un e-commerce empleando la librería de react, capaz de mostrar diversos productos al usuario, ver detalle del producto, carrito de compras, interactuar con la base de datos en firestore, consultar detalle de compras. A continuación se detalla en mas profundidad las herramientas empleadas y su uso dentro del proyecto. 
-
-## FrameWork utilizado
-
-En este proyecto trabajé con [Bootstrap](https://getbootstrap.com/), el mismo me permitió aprender a como poder integrar este framework con react; además, este marco de trabajo me dió la posibilidad de crear un proyecto responsive con menor cantidad de horas de desarrollo y aceleró los arreglos estéticos del e-commerce, lo que se tradujo en mas tiempo para mejorar la estructura aplicada bajo la librería react. 
+Proyecto final de React en CoderHouse, consiste en la construcción de un e-commerce empleando la librería de react, capaz de mostrar diversos productos al usuario, ver detalle del producto, carrito de compras, interactuar con la base de datos en firestore, consultar detalle de compras. A continuación se detalla en mas profundidad las herramientas empleadas y su uso dentro del proyecto. 
 
 Para la elaboración de este proyecto decidí trabajar con requerimientos lo mas reales posibles, por lo que trabajé con una tienda física ubicada en la Ciudad de Buenos Aires, de la cual se puede observar su fachada en la siguiente imagen.
 
 ![](src/assets/images/3localFabihogar.jpg)
+
+## FrameWork utilizado
+
+En este proyecto trabajé con [Bootstrap](https://getbootstrap.com/), el mismo me permitió aprender a como poder integrar este framework con react; además, este marco de trabajo me dió la posibilidad de crear un proyecto responsive con menor cantidad de horas de desarrollo y aceleró los arreglos estéticos del e-commerce, lo que se tradujo en mas tiempo para mejorar la estructura aplicada bajo la librería react. 
 
 ## Librerías utilizadas
 
